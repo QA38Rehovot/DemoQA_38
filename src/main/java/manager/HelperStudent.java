@@ -57,9 +57,17 @@ public interface HelperStudent extends HelperBase{
         // 06 29 2000
         String[] date = birthday.split(" ");
         click(By.id("dateOfBirthInput"));
-        new Select(wd.findElement(By.className("react-datepicker__month-select"))).selectByValue(date[0]);
+        new Select(wd.findElement(By.className("react-datepicker__month-select"))).selectByValue("" + (Integer.parseInt(date[0]) - 1));
+//        System.out.println(date[0]);
         new Select(wd.findElement(By.className("react-datepicker__year-select"))).selectByValue(date[2]);
-        click(By.xpath("//div[.='" + date[1] + "']"));
+        String day = String.format("//div[.='%s']", date[1]);
+        List<WebElement> days = wd.findElements(By.xpath(day));
+        if(days.size() > 1 && Integer.parseInt(date[1]) > 15){
+            days.get(1).click();
+        } else {
+            days.get(0).click();
+        }
+//        click(By.xpath("//div[.='" + date[1] + "']"));
     }
 
     default void selectGender(Gender gender){

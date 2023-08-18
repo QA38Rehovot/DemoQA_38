@@ -30,7 +30,7 @@ public class StudentFormTest extends TestBase implements HelperStudent {
                 .email("sarah@mail.com")
                 .gender(Gender.FEMALE)
                 .phone("1234567890")
-                .birthday("6 29 2000")
+                .birthday("6 8 2000")
                 .subjects("Maths,Physics")
                 .hobbies(hobbies)
                 .address("Main street, 5")
