@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentFormTest implements HelperStudent {
+public class StudentFormTest extends TestBase implements HelperStudent {
 
     @BeforeMethod
     public void precondition(){
@@ -30,7 +30,7 @@ public class StudentFormTest implements HelperStudent {
                 .email("sarah@mail.com")
                 .gender(Gender.FEMALE)
                 .phone("1234567890")
-                .birthday("05 05 2000")
+                .birthday("6 29 2000")
                 .subjects("Maths,Physics")
                 .hobbies(hobbies)
                 .address("Main street, 5")
@@ -38,6 +38,8 @@ public class StudentFormTest implements HelperStudent {
                 .city("Delhi")
                 .build();
 
+        hideFooter();
+        hideDiv();
         fillForm(studentDTO);
         submit();
 
